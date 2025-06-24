@@ -35,11 +35,10 @@ const Services: React.FC = () => {
     }
   ];
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const openQuoteForm = () => {
+    // Trigger the floating quote button modal
+    const event = new CustomEvent('openQuoteModal');
+    window.dispatchEvent(event);
   };
 
   return (
@@ -98,7 +97,7 @@ const Services: React.FC = () => {
 
                   <div className="flex justify-center pt-4 border-t border-white/20">
                     <button
-                      onClick={scrollToContact}
+                      onClick={openQuoteForm}
                       className="group/btn bg-gradient-to-r from-gray-500 to-gray-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-500 hover:to-green-600 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
                     >
                       <span>Solicite sua cotação agora!</span>

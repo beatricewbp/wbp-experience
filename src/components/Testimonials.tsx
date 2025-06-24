@@ -117,6 +117,12 @@ const Testimonials: React.FC = () => {
     return testimonials.slice(startIndex, startIndex + testimonialsPerSlide);
   };
 
+  const openQuoteForm = () => {
+    // Trigger the floating quote button modal
+    const event = new CustomEvent('openQuoteModal');
+    window.dispatchEvent(event);
+  };
+
   return (
     <section id="testimonials" className="py-20 bg-black/70 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -249,12 +255,7 @@ const Testimonials: React.FC = () => {
               Junte-se aos nossos clientes satisfeitos e descubra por que somos referência em experiências premium.
             </p>
             <button
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+              onClick={openQuoteForm}
               className="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-500 hover:to-green-600 transition-all duration-300 transform hover:scale-105"
             >
               Solicite sua cotação agora!

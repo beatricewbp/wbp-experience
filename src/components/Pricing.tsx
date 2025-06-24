@@ -51,11 +51,10 @@ const Pricing: React.FC = () => {
     }
   ];
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const openQuoteForm = () => {
+    // Trigger the floating quote button modal
+    const event = new CustomEvent('openQuoteModal');
+    window.dispatchEvent(event);
   };
 
   return (
@@ -97,7 +96,7 @@ const Pricing: React.FC = () => {
                   </div>
 
                   <button
-                    onClick={scrollToContact}
+                    onClick={openQuoteForm}
                     className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 mb-4 ${
                       pkg.popular
                         ? 'bg-gradient-to-r from-gray-500 to-gray-600 text-white hover:from-green-500 hover:to-green-600'
@@ -166,7 +165,7 @@ const Pricing: React.FC = () => {
 
                 <div className="flex justify-center">
                   <button
-                    onClick={scrollToContact}
+                    onClick={openQuoteForm}
                     className="group bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 text-white px-12 py-4 rounded-xl font-bold text-lg hover:from-green-500 hover:via-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-2xl flex items-center space-x-3"
                   >
                     <span>Falar com Especialista</span>

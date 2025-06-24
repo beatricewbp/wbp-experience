@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calculator, X, Send, User, Mail, Phone } from 'lucide-react';
 
 const FloatingQuoteButton: React.FC = () => {
@@ -8,6 +8,16 @@ const FloatingQuoteButton: React.FC = () => {
     email: '',
     phone: ''
   });
+
+  // Listen for custom event to open modal
+  useEffect(() => {
+    const handleOpenModal = () => {
+      setIsModalOpen(true);
+    };
+
+    window.addEventListener('openQuoteModal', handleOpenModal);
+    return () => window.removeEventListener('openQuoteModal', handleOpenModal);
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -20,14 +30,8 @@ const FloatingQuoteButton: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Create WhatsApp message
-    const message = `Olá! Gostaria de solicitar um orçamento.%0A%0A*Nome:* ${formData.name}%0A*Email:* ${formData.email}%0A*Telefone:* ${formData.phone}%0A%0AObrigado!`;
-    
-    // WhatsApp number (replace with actual number)
-    const whatsappNumber = '5511999999999'; // Replace with actual WhatsApp number
-    
-    // Open WhatsApp
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+    // Open WhatsApp with the new link
+    window.open('https://wa.me/5511950645140?text=Quero%20reservar%20minha%20experi%C3%AAncia', '_blank');
     
     // Reset form and close modal
     setFormData({ name: '', email: '', phone: '' });
