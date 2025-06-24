@@ -10,7 +10,7 @@ const Testimonials: React.FC = () => {
       id: 1,
       name: 'Carlos Eduardo Silva',
       role: 'Empresário',
-      experience: 'Porsche 718 Cayman',
+      experience: 'Porsche 718 Boxster',
       rating: 5,
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
       testimonial: 'Experiência absolutamente incrível! O Porsche 718 superou todas as minhas expectativas.',
@@ -50,7 +50,7 @@ const Testimonials: React.FC = () => {
       id: 5,
       name: 'Felipe Rodrigues',
       role: 'Advogado',
-      experience: 'Porsche 718 Cayman',
+      experience: 'Porsche 718 Boxster',
       rating: 5,
       image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
       testimonial: 'Como entusiasta de carros esportivos, posso dizer que a experiência foi excepcional.',
@@ -103,6 +103,12 @@ const Testimonials: React.FC = () => {
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
+  const openQuoteForm = () => {
+    // Trigger the floating quote button modal
+    const event = new CustomEvent('openQuoteModal');
+    window.dispatchEvent(event);
+  };
+
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
@@ -115,12 +121,6 @@ const Testimonials: React.FC = () => {
   const getCurrentTestimonials = () => {
     const startIndex = currentSlide * testimonialsPerSlide;
     return testimonials.slice(startIndex, startIndex + testimonialsPerSlide);
-  };
-
-  const openQuoteForm = () => {
-    // Trigger the floating quote button modal
-    const event = new CustomEvent('openQuoteModal');
-    window.dispatchEvent(event);
   };
 
   return (
