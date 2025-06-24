@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Facebook, Twitter, Mail, MapPin } from 'lucide-react';
+import { Instagram, Mail, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -29,22 +29,12 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.instagram.com/wbpexperience"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gray-800 hover:bg-gray-600 hover:text-white text-gray-400 p-3 rounded-lg transition-all duration-300 transform hover:scale-110"
               >
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="bg-gray-800 hover:bg-gray-600 hover:text-white text-gray-400 p-3 rounded-lg transition-all duration-300 transform hover:scale-110"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="bg-gray-800 hover:bg-gray-600 hover:text-white text-gray-400 p-3 rounded-lg transition-all duration-300 transform hover:scale-110"
-              >
-                <Twitter className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -117,7 +107,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-gray-400 flex-shrink-0" />
-                <p className="text-gray-400">info@wbp.experience</p>
+                <p className="text-gray-400">comercial@wbp.group</p>
               </div>
             </div>
 
