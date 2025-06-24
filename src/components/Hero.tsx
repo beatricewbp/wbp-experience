@@ -38,12 +38,6 @@ const Hero: React.FC = () => {
     }
   };
 
-  const openQuoteForm = () => {
-    // Trigger the floating quote button modal
-    const event = new CustomEvent('openQuoteModal');
-    window.dispatchEvent(event);
-  };
-
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Background Images with Rotation */}
@@ -123,7 +117,7 @@ const Hero: React.FC = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                onClick={openQuoteForm}
+                onClick={() => scrollToSection('services')}
                 className="group bg-gray-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
                 <span>Reserve Sua Experiência</span>
