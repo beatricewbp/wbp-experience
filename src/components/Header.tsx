@@ -12,6 +12,13 @@ const Header: React.FC = () => {
     }
   };
 
+  const openQuoteForm = () => {
+    // Trigger the floating quote button modal
+    const event = new CustomEvent('openQuoteModal');
+    window.dispatchEvent(event);
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-white/10 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,7 +52,7 @@ const Header: React.FC = () => {
               O que dizem?
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={openQuoteForm}
               className="bg-gray-600 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105 font-medium"
             >
               Reservar
@@ -84,7 +91,7 @@ const Header: React.FC = () => {
                 O que dizem?
               </button>
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={openQuoteForm}
                 className="bg-gray-600 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-all duration-300 w-full text-left font-medium"
               >
                 Reservar
