@@ -30,8 +30,18 @@ const FloatingQuoteButton: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Open WhatsApp with the new link
-    window.open('https://wa.me/5511950645140?text=Quero%20reservar%20minha%20experi%C3%AAncia', '_blank');
+    // Create WhatsApp message with form data
+    const message = `Olá! Quero reservar minha experiência.
+
+*Meus dados:*
+📝 Nome: ${formData.name}
+📧 Email: ${formData.email}
+📱 Telefone: ${formData.phone}
+
+Aguardo contato para mais informações sobre as experiências disponíveis.`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/5511966017385?text=${encodedMessage}`, '_blank');
     
     // Reset form and close modal
     setFormData({ name: '', email: '', phone: '' });
