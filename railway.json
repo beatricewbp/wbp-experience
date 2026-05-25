@@ -1,0 +1,11 @@
+{
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "deploy": {
+    "buildCommand": "npm install && npm run build",
+    "startCommand": "npx serve dist -s -l $PORT",
+    "healthcheckPath": "/",
+    "restartPolicyType": "ON_FAILURE"
+  }
+}
